@@ -1,9 +1,11 @@
-var str="web" //グローバルスコープ
-
+// ブロック（ローカルスコープ）
 function foo(){
-  console.log(str)
-  var y="hello" //関数スコープ
+  let x="webcamp"
+  {
+    let y="hello webcamp"
+  }
+  console.log(x)
+  console.log(y)
 }
 
 foo()
-console.log(y)//関数スコープガイのため、エラーとなる
