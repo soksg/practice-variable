@@ -1,5 +1,9 @@
 // じゃんけんで入力してもらうプロンプトを作成
-let user_hand=prompt('じゃんけんの手を、グー、チョキ、パーの中から選んでください。');
+let user_hand=prompt("じゃんけんの手を、グー、チョキ、パーから選んでください。");
+  while((user_hand!="グー") && (user_hand!="チョキ") && (user_hand!="パー") && (user_hand!=null)){
+    alert("グー、チョキ、パーのいずれかを選んでください。");
+    user_hand=prompt("じゃんけんの手を、グー、チョキ、パーから選んでください。");
+  }
 
 // じゃんけんの手をランダムに作成する関数を呼び出す
 let js_hand=getJShand();
@@ -8,7 +12,11 @@ let js_hand=getJShand();
 let judge=winlose(user_hand, js_hand);
 
 // 結果を表示する
-alert('あなやの選んだ手は、' + user_hand + '\nJavaScriptの選んだ手は' + js_hand + 'です。\n結果は' + judge + 'です。');
+if (user_hand!=null){
+  alert("あなたの選んだ手は" + user_hand + "です。\nJavaScriptの選んだ手は、" + js_hand + "です。\n "+ judge + "です。");
+} else  {
+  alert("またチャレンジしてね")
+}
 
 // ランダムでじゃんけんの手を作成する関数
 function getJShand(){
@@ -34,23 +42,23 @@ function winlose(user, js){
     if(js=="グー"){
       winloseStr="あいこ";
     } else if(js=="チョキ"){
-      winloseStr="勝ち";
+      winloseStr="あなたの勝ち";
     } else if (js=="パー"){
-      winloseStr="負け";
+      winloseStr="あなたの負け";
     }
   } else if(user=='チョキ'){
       if (js=="グー"){
-        winloseStr="負け";
+        winloseStr="あなたの負け";
       } else if (js=="チョキ"){
         winloseStr="あいこ";
       } else if (js=="パー"){
-        winloseStr="勝ち";
+        winloseStr="あなたの勝ち";
       }
   } else if(user=="パー"){
       if (js=="グー"){
-        winloseStr="勝ち";
+        winloseStr="あなたの勝ち";
       } else if (js=="チョキ"){
-        winloseStr="負け";
+        winloseStr="あなたの負け";
       } else if (js=="パー"){
         winloseStr="あいこ";
       }
